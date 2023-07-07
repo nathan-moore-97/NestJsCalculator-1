@@ -7,12 +7,10 @@ export class ArithmeticController {
     constructor(private mathService: ArithmeticService) {}
 
     @Post()
-    async doOp(@Body('a') a: number | null | undefined,
-        @Body('b') b: number | null | undefined,
-        @Body('opcode') opcode: number | null | undefined
+    async doOp(@Body('a') a: number,
+        @Body('b') b: number,
+        @Body('opcode') opcode: number
     ): Promise<number> {
-        
-        
         return this.mathService.doOp(a, b, opcode as OpcodeEnum);
     }
 
