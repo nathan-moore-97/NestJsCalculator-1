@@ -18,7 +18,7 @@ export class ArithmeticService {
 
     constructor() { this.operationHistory = []; }
 
-    doOp(a: number, b: number, op: OpcodeEnum): number {
+    doOp(a: number, b: number, op: OpcodeEnum): any {
         let exp: IArithmeticOperator = (function() {
             switch(+op) {
                 case OpcodeEnum.Add: return new AdditionOperator(a, b);
@@ -33,15 +33,15 @@ export class ArithmeticService {
         })();
 
         this.operationHistory.push(exp);
-        return exp.op();
+        return {"result": exp.op()};
     }
 
-    history(): string[] {
+    history(): any {
         let ret = []
         for(let i = this.operationHistory.length - 1; i >= 0; i--) {
             ret.push(this.operationHistory[i].toString())
         }
 
-        return ret;
+        return {"history": ret};
     }
 }
