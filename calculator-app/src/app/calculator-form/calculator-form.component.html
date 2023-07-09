@@ -1,0 +1,17 @@
+<form class="form-inline">
+    <div class="form-group expression-item">
+        <label for="aValue" id="aValueLabel">A: </label>
+        <input class="form-control" type="text" id="aValue" name="aValue" value="0">
+    </div>
+    <div class="form-group expression-item">
+        <select class="form-control" name="opcode" id="opcodeSelect">
+            <option *ngFor="let oc of supportedOpcodes" value="{{supportedOpcodes.indexOf(oc)}}">{{oc}}</option>
+        </select>
+    </div>
+    <div class="form-group expression-item">
+        <label for="bValue" id="bValueLabel">B: </label>
+        <input class="form-control" type="text" id="bValue" name="bValue" value="0">
+    </div>
+    <br>
+    <button class="btn btn-primary" id="getResultButton">Go!</button>
+</form>
