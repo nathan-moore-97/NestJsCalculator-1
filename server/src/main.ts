@@ -3,8 +3,13 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors({
+    allowedHeaders: ['content-type'],
+    origin: 'http://localhost:4200/'
+  });
   await app.listen(3000);
 }
+
 bootstrap().then(function() {
-  console.log("Ready for maths!");
+  console.log("\nReady for maths!");
 }); 

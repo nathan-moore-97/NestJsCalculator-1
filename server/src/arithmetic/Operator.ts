@@ -1,35 +1,21 @@
-import { OpcodeEnum } from "./enums/OpcodeEnum";
+import { OpcodeEnum, opcodeToString } from "./enums/OpcodeEnum";
 import { IArithmeticOperator } from "./interfaces/IArithmeticOperator";
 
 
 class ArithmeticOperator implements IArithmeticOperator {
     a: number;
     b: number;
-    opcode: OpcodeEnum = OpcodeEnum.Unknown;
+    opcode: OpcodeEnum;
 
     constructor(a: number, b: number) {
         this.a = a;
         this.b = b;
     }
-    
-    opcodeToString(): string {
-        switch(this.opcode) {
-            case OpcodeEnum.Add: return "+";
-            case OpcodeEnum.Subtract: return "-";
-            case OpcodeEnum.Divide: return "/";
-            case OpcodeEnum.Multiply: return "*";
-            case OpcodeEnum.Exponentiate: return "^";
-            case OpcodeEnum.Modulo: return "%";
-            case OpcodeEnum.Unknown: 
-            default: 
-                return "?"
-        }
-    }
 
     op(): number { throw new Error("Method not implemented."); }
 
     toString(): string {
-        return `${this.a} ${this.opcodeToString()} ${this.b} = ${this.op()}`;
+        return `${this.a} ${opcodeToString(this.opcode)} ${this.b} = ${this.op()}`;
     }
 }
 
