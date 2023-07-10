@@ -13,7 +13,10 @@ export class OpcodeService {
   constructor(private http: HttpClient) {}
 
   getListOfSupportedOpcodes() {
-    const headers = new HttpHeaders().set('content-type', 'application/x-www-form-urlencoded');
+    const headers = new HttpHeaders()
+      .set('content-type', 'application/x-www-form-urlencoded')
+      .set('Access-Control-Allow-Origin', '*')
+      .set('allow-origins', '*');
     
     return this.http.get(Enviornment.serverUrl + "/opcode", {'headers':  headers});
   }

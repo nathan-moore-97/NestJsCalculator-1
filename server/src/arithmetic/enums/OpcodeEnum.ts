@@ -6,7 +6,6 @@ export enum OpcodeEnum {
     Divide,
     Exponentiate,
     Modulo,
-    Goofy,
 }
 
 export function opcodeToString(opcode: OpcodeEnum): string {
@@ -17,7 +16,6 @@ export function opcodeToString(opcode: OpcodeEnum): string {
         case OpcodeEnum.Multiply: return "*";
         case OpcodeEnum.Exponentiate: return "^";
         case OpcodeEnum.Modulo: return "%";
-        case OpcodeEnum.Goofy: return "~";
         default: 
             return "?"
     }
